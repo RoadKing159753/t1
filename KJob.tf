@@ -9,7 +9,7 @@ resource "kubernetes_job" "demo" {
                   spec {                                                                    
                     automount_service_account_token = false                                 
                     security_context {                                                      
-                      ...                                                                   
+                                                                                       
                     }                                                                       
                     restart_policy = "Never"                                                
                   }                                                                         
