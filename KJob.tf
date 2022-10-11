@@ -1,22 +1,20 @@
-resource "kubernetes_job" "example" {
-  metadata {
-    name      = "terraform-example"
-    namespace = "something"
-    labels = {
-      test = "MyExampleApp"
-    }
-  }
-
-  spec {
-    automount_service_account_token = false
-    security_context {                                                      
-                                                                        
-    }
-    selector {
-      match_labels = {
-        test = "MyExampleApp"
-      }
-      
-    }
-  }
-}
+resource "kubernetes_job" "demo" {                                              
+              metadata {                                                                    
+                name = "demo"                                                               
+                namespace = "demo"                                                          
+              }                                                                             
+              spec {                                                                        
+                template {                                                                  
+                  metadata {}                                                               
+                  spec {                                                                    
+                    automount_service_account_token = false                                 
+                    security_context {                                                      
+                      ...                                                                   
+                    }                                                                       
+                    restart_policy = "Never"                                                
+                  }                                                                         
+                }                                                                           
+                backoff_limit = 4                                                           
+              }                                                                             
+              wait_for_completion = false                                                   
+            }                                                                               
