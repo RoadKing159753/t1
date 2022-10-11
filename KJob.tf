@@ -1,18 +1,22 @@
 resource "kubernetes_job" "example" {
   metadata {
     name      = "terraform-example"
-    namespace = "default"
+    namespace = "something"
     labels = {
       test = "MyExampleApp"
     }
   }
 
   spec {
-    automount_service_account_token = true
+    automount_service_account_token = false
+    security_context {                                                      
+                                                                        
+    }
     selector {
       match_labels = {
         test = "MyExampleApp"
       }
+      
     }
   }
 }
