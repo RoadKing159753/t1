@@ -180,7 +180,7 @@
            ],
                 "Tags" : [ {
                   "Key" : "keyname1",
-                  "Value" : "value1"
+                  "Value" : "value"
                }],
                 "VpcId" : "String"
               }
